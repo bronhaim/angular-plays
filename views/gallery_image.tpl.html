@@ -1,0 +1,38 @@
+<img 
+  class="img-thumbnail" 
+  err-src="https://www.kywie.com/wp-content/themes/gecko/assets/images/placeholder.png" 
+  alt="Cinque Terre" 
+  ng-src="{{ url }}"
+  data-toggle="modal"
+  data-target="#myModal"
+  ng-click="setCurrentImage()"/>
+<p class="title">{{ title }}</p>
+
+ <!-- Modal -->
+ <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Gallery Picture Modal</h4>
+          </div>
+          <div class="modal-body">
+            <img alt="Cinque Terre" ng-src="{{ currentImage }}" class="img-thumbnail"/>
+          </div>
+          <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="prvCurrentImage()">Previous</button>
+                <button type="button" class="btn btn-default" ng-click="nextCurrentImage()">Next</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    
+      </div>
+      </div>
+
+      <div id="slideModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">            
+                <slideshow></slideshow>            
+          </div>
+      </div>

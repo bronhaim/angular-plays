@@ -6,13 +6,13 @@
   <br/>
   <div class="centered">
     <div class="centered">
-      <input style="padding-left: 50px;padding-right: 50px;" type='search' ng-model="searchItem" placeholder="search something" ng-show="vm.displaySearch">
-      <button type="button" class="btn btn-primary btn-lg" ng-show="vm.displaySearch">Search</button>   
+      <input style="padding-left: 50px;padding-right: 50px;" type='search' ng-model="searchItem" placeholder="search something" ng-show="displaySearch">
+      <button type="button" class="btn btn-primary btn-lg" ng-show="displaySearch">Search</button>   
     </div>
      <br/>
      <h4 style="color: white">Search Results:</h4>
      <p class="title">Order by: 
-         <button class="btn btn-primary dropdown-toggle" ng-click="vm.sortType = 'title'; vm.sortReverse = !vm.sortReverse">Title</button>
+         <button class="btn btn-primary dropdown-toggle" ng-click="sortType = 'title'; sortReverse = !sortReverse">Title</button>
      </p>
      <div class="row"> 
      <div ng-repeat="f in vm.items | orderBy:vm.sortType:vm.sortReverse | filter:searchItem" class="column">

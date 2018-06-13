@@ -1,3 +1,58 @@
-<div ng-controller="galleryController as glr">
-  <h1>bubu</h1>
+<br/>
+<br/>
+<br/>
+<div class="container centered" style="background-color: lightblue">
+    <h1 style="color: white">Gallery</h1>
+  <br/>
+  <div class="centered">
+    <div class="centered">
+      <input style="padding-left: 50px;padding-right: 50px;" type='search' ng-model=searchItem placeholder="search something" ng-show="displaySearch">
+      <button type="button" class="btn btn-primary btn-lg" ng-show="displaySearch">Search</button>   
+    </div>
+     <br/>
+     <h4 style="color: white">Search Results:</h4>
+     <p class="title">Order by: 
+         <button class="btn btn-primary dropdown-toggle" ng-click="sortType = 'title'; sortReverse = !sortReverse">Title</button>
+     </p>
+     <div class="row"> 
+     <div ng-repeat="f in items | orderBy:vm.sortType:sortReverse | filter:searchItem" class="column">
+       <gallery-image title="{{ f.title }}" url="{{ f.url }}" index="{{ $index }}" feed="feed"></gallery-image>       
+     </div>
+     </div>
+  </div>
+  <div ng-show='pagination' class="text-center">
+    <!-- pager -->
+    <ul ng-if='pager.pages.length' class="pagination">
+        <li ng-class="{disabled:pager.currentPage === 1}">
+            <a ng-click="setPage(1, resultsPerPage)">First</a>
+        </li>
+        <li ng-class="{disabled:pager.currentPage === 1}">
+            <a ng-click="setPage(pager.currentPage - 1)">Previous</a>
+        </li>
+        <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+            <a ng-click="setPage(page, resultsPerPage)">{{page}}</a>
+        </li>                
+        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+            <a ng-click="setPage(pager.currentPage + 1, resultsPerPage)">Next</a>
+        </li>
+        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+            <a ng-click="setPage(pager.totalPages, resultsPerPage)">Last</a>
+        </li>
+    </ul>
 </div>
+  <br/>
+    <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="modal" data-target="#slideModal">Show Slideshow</button>
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Item per page
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a ng-click="setResultsCount(5)">5</a></li>
+      <li><a ng-click="setResultsCount(10)">10</a></li>
+      <li><a ng-click="setResultsCount(15)">15</a></li>
+      <li><a ng-click="setResultsCount(20)">20</a></li>
+    </ul>
+   </div>   
+   <br/>
+   <br/>
+   <br/>
+ </div>

@@ -21,7 +21,6 @@
      </div>
   </div>
   <div ng-show='pagination' class="text-center">
-    <!-- pager -->
     <ul ng-if='pager.pages.length' class="pagination">
         <li ng-class="{disabled:pager.currentPage === 1}">
             <a ng-click="setPage(1, resultsPerPage)">First</a>
@@ -43,6 +42,7 @@
   <br/>
     <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="modal" data-target="#slideModal">Show Slideshow</button>
+    <slide-show index="{{ $index }}" feed="feed"></slide-show>
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Item per page
     <span class="caret"></span></button>
     <ul class="dropdown-menu">

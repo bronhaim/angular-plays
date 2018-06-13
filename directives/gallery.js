@@ -18,7 +18,7 @@ angular.module("myApp")
             if (page < 1 || page > scope.pager.totalPages) {
                 return;
             }       
-            scope.pager = PagerService.GetPager(scope.feed.length, page, resultsPerPage);
+            scope.pager = PagerService.GetPager(scope.feed.length, page, parseInt(resultsPerPage));
             scope.items = scope.feed.slice(scope.pager.startIndex, scope.pager.endIndex + 1);
           };
 

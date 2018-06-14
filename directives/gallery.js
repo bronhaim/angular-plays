@@ -34,6 +34,15 @@ angular.module("myApp")
 
           photos.success(function(data) {
             scope.feed = data
+            if (localStorage.getItem('feed') !== null) {
+              scope.feed = JSON.parse(localStorage.getItem('feed'));
+            }
+            else
+            {
+              scope.feed = data; 
+              localStorage.setItem('feed', JSON.stringify(scope.feed));
+            }
+
             scope.pager = {};
             scope.setSearch = function(text) {
               scope.searchTitle = text; 

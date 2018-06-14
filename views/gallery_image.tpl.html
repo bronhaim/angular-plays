@@ -6,7 +6,8 @@
   data-toggle="modal"
   data-target="#myModal"
   ng-click="setCurrentImage()"/>
-<p class="title">{{ title }}</p>
+<p color="yellow" class="title">{{ title }}</p>
+<button type="button" ng-click="deleteImage(scope.index)" class="btn btn-danger"><i class="fa fa-trash-o"></i>Delete</button>
 
  <!-- Modal -->
  <div id="myModal" class="modal fade" role="dialog">

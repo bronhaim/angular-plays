@@ -32,6 +32,14 @@ angular.module("myApp")
     
             scope.currentImage = scope.feed[scope.currIndx].url;
           }      
+
+          scope.deleteImage = function(index) {
+            if (confirm('Are you sure you want to delete this image?')) {
+                scope.feed.splice(index, 1);
+                scope.$apply();
+                localStorage.setItem('feed', JSON.stringify(scope.feed));
+              }
+          }
         }
       }
     }
